@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+}
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.header {
+    position: fixed;
+    top: 20px;
+    min-width: 100%;
+    z-index: 1;
+    text-align: center;
+}
+.footer {
+    position: fixed;
+    bottom: 20px;
+    min-width: 100%;
+    z-index: 1;
+    text-align: center;
+}
+.btn {
+    min-height: 50px;
+}
+#div-bride {
+    background-color: #ffffff00;
+    border-radius: 30px;
+}
+#div-groom {
+    background-color: #ffffff00;
+    border-radius: 30px;
+}
+.d-block {
+    max-height: 400px;
+}
