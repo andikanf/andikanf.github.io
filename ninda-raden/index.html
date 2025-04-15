@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Ninda & Raden</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<section>
+					<style>
+					  .bg-fullscreen {
+						position: relative;
+						background-image: url('./img/img1.jpeg');
+						background-size: cover;
+						background-position: center;
+						background-repeat: no-repeat;
+						background-attachment: fixed;
+						height: 100vh;
+						width: 100%;
+						display: flex;
+						flex-direction: column;
+						justify-content: space-between;
+						align-items: center;
+						padding: 60px 20px;
+						box-sizing: border-box;
+						z-index: 0;
+					  }
+				  
+					  /* Overlay */
+					  .bg-fullscreen::before {
+						content: '';
+						position: absolute;
+						top: 0; left: 0;
+						width: 100%;
+						height: 100%;
+						background: rgba(255, 255, 255, 0.6); /* light overlay, adjust opacity as needed */
+						z-index: 1;
+					  }
+				  
+					  /* Content */
+					  .bg-content {
+						position: relative;
+						z-index: 2;
+						text-align: center;
+					  }
+				  
+					  .bg-content h4,
+					  .bg-content h3,
+					  .bg-content h5 {
+						color: #4b2e2e;
+						margin: 10px 0;
+					  }
+				  
+					  .bg-content h5 {
+						color: #000;
+					  }
+					</style>
+				  
+					<div class="bg-fullscreen">
+					  <div class="bg-content">
+						<h4>Kepada Bapak/Ibu/Saudara/i</h4>
+						<h3 id="text-invitee-2">Tamu</h3>
+					  </div>
+				  
+					  <div class="bg-content">
+						<h5>Swipe untuk membuka undangan</h5>
+					  </div>
+					</div>
+				  </section>
+				<section>
+					<link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+					<h3>
+					  The Wedding Of
+					</h3>
+				  
+					<!-- Apply capitalization ONLY to the title (Ninda & Raden) -->
+					<h1 style="
+					  margin-top: 10px; 
+					  font-family: 'Sacramento', cursive; 
+					  font-size: 5em; 
+					  text-align: center; 
+					  color: #3c20da; 
+					  text-transform: capitalize; /* Only this one */
+					  text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 196, 0, 0.7); 
+					  letter-spacing: 3px;
+					  line-height: 1.2;">
+					  Ninda & Raden
+					</h1>
+					<div id="countdown" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+					  <div class="time-unit" style="margin-right: 20px; text-align: center; flex: 1;">
+						<span id="days" style="font-size: 3em; font-weight: bold; color: #333;"></span>
+						<span class="time-unit-label" style="font-size: 1.2em; color: #444;">Hari</span>
+					  </div>
+					  <div class="time-unit" style="margin-right: 20px; text-align: center; flex: 1;">
+						<span id="hours" style="font-size: 3em; font-weight: bold; color: #333;"></span>
+						<span class="time-unit-label" style="font-size: 1.2em; color: #444;">Jam</span>
+					  </div>
+					  <div class="time-unit" style="margin-right: 20px; text-align: center; flex: 1;">
+						<span id="minutes" style="font-size: 3em; font-weight: bold; color: #333;"></span>
+						<span class="time-unit-label" style="font-size: 1.2em; color: #444;">Menit</span>
+					  </div>
+					  <div class="time-unit" style="text-align: center; flex: 1;">
+						<span id="seconds" style="font-size: 3em; font-weight: bold; color: #333;"></span>
+						<span class="time-unit-label" style="font-size: 1.2em; color: #444;">Detik</span>
+					  </div>
+					</div>
+				  </section>
+
+				<section data-vertical-align="top">
+					<style>
+					  /* Carousel container for Bride */
+					  .bride-carousel {
+						width: 700px;
+						max-width: 90%;
+						margin: 20px auto;
+						position: relative;
+						aspect-ratio: 4 / 3;
+						overflow: hidden;
+					  }
+				  
+					  /* Carousel images for Bride */
+					  .bride-carousel-img {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+						border-radius: 10%;
+						opacity: 0;
+						transition: opacity 1s ease-in-out;
+					  }
+				  
+					  .bride-carousel-img.active {
+						opacity: 1;
+						z-index: 1;
+					  }
+				  
+					  /* Typography for Bride */
+					  .bride-title {
+						margin-top: 40px;
+						text-align: center;
+						font-size: 2em;
+					  }
+				  
+					  .bride-name {
+						text-align: center;
+						font-size: 2.5em;
+						margin-top: 30px;
+						margin-bottom: 10px;
+					  }
+				  
+					  .bride-parents {
+						text-align: center;
+						font-size: 1.2em;
+						color: #444;
+					  }
+					</style>
+				  
+					<h4 class="bride-title">The Bride</h4>
+				  
+					<div class="bride-carousel">
+					  <img src="./img/mabel.jpg" class="bride-carousel-img active" alt="Bride Photo 1">
+					  <img src="./img/dika.jpg" class="bride-carousel-img" alt="Bride Photo 2">
+					</div>
+				  
+					<h2 class="bride-name">Izmy Nur Syamninda</h2>
+				  
+					<h4 class="bride-parents">
+					  Putri pertama dari<br>
+					  Bapak Samsu &<br>
+					  Ibu Darmi
+					</h4>
+				  
+					<script>
+					  // Smooth fading carousel for Bride
+					  const brideCarousel = document.currentScript.parentElement.querySelector('.bride-carousel');
+					  const brideImages = brideCarousel.querySelectorAll('.bride-carousel-img');
+					  let brideCurrent = 0;
+				  
+					  setInterval(() => {
+						brideImages[brideCurrent].classList.remove('active');
+						brideCurrent = (brideCurrent + 1) % brideImages.length;
+						brideImages[brideCurrent].classList.add('active');
+					  }, 4000);
+					</script>
+				  </section>
+				  
+				  <section data-vertical-align="top">
+					<style>
+					  /* Carousel container for Groom */
+					  .groom-carousel {
+						width: 700px;
+						max-width: 90%;
+						margin: 20px auto;
+						position: relative;
+						aspect-ratio: 4 / 3;
+						overflow: hidden;
+					  }
+				  
+					  /* Carousel images for Groom */
+					  .groom-carousel-img {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+						border-radius: 10%;
+						opacity: 0;
+						transition: opacity 1s ease-in-out;
+					  }
+				  
+					  .groom-carousel-img.active {
+						opacity: 1;
+						z-index: 1;
+					  }
+				  
+					  /* Typography for Groom */
+					  .groom-title {
+						margin-top: 40px;
+						text-align: center;
+						font-size: 2em;
+					  }
+				  
+					  .groom-name {
+						text-align: center;
+						font-size: 2.5em;
+						margin-top: 30px;
+						margin-bottom: 10px;
+					  }
+				  
+					  .groom-parents {
+						text-align: center;
+						font-size: 1.2em;
+						color: #444;
+					  }
+					</style>
+				  
+					<h4 class="groom-title">The Groom</h4>
+				  
+					<div class="groom-carousel">
+					  <img src="./img/mabel.jpg" class="groom-carousel-img active" alt="Groom Photo 1">
+					  <img src="./img/dika.jpg" class="groom-carousel-img" alt="Groom Photo 2">
+					</div>
+				  
+					<h2 class="groom-name">Nama lengkap Raden</h2>
+				  
+					<h4 class="groom-parents">
+					  Putra pertama dari<br>
+					  Bapak (nama bapak Raden) &<br>
+					  Ibu (nama ibu Raden)
+					</h4>
+				  
+					<script>
+					  // Smooth fading carousel for Groom
+					  const groomCarousel = document.currentScript.parentElement.querySelector('.groom-carousel');
+					  const groomImages = groomCarousel.querySelectorAll('.groom-carousel-img');
+					  let groomCurrent = 0;
+				  
+					  setInterval(() => {
+						groomImages[groomCurrent].classList.remove('active');
+						groomCurrent = (groomCurrent + 1) % groomImages.length;
+						groomImages[groomCurrent].classList.add('active');
+					  }, 4000);
+					</script>
+				  </section>
+				<section data-markdown>
+					<textarea data-template>
+					## Wedding Event
+
+					# Akad Nikah
+
+					Sabtu, 14 Juni 2025
+
+					08:00 WIB
+					
+					# Resepsi
+					
+					Sabtu, 14 Juni 2025
+
+					11:00 - 13:00
+					
+					</textarea>
+				</section>
+				<section>
+					<h4>Lokasi</h4>
+					<h3>Gor Basket Rawamangun Jakarta Timur</h3>
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4880.69871037826!2d106.8866522!3d-6.1927669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f58c02326633%3A0x5011aa47ffb26132!2sGor%20basket%20rawamangun!5e1!3m2!1sen!2sid!4v1744414835189!5m2!1sen!2sid"
+						width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"></iframe>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+					Merupkan sebuah kehormatan dan kebahagiaan bagi kami jika Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu bagi kami. Terima Kasih.
+					</textarea>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<audio autoplay loop id="playAudio">
+		<source src="./audio/a.mp3">
+	</audio>
+
+	<script>
+		var url_string = window.location.href;
+		var url = new URL(url_string);
+		var to = url.searchParams.get("to");
+		if (to != null) {
+			// Wait a bit because Reveal might not have rendered yet
+			window.addEventListener("DOMContentLoaded", () => {
+				const target = document.querySelector("#text-invitee-2");
+				if (target) {
+					target.textContent = to;
+				}
+			});
+		}
+	</script>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<!-- <script src="main.js"></script> -->
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			// Parallax background image
+			// parallaxBackgroundImage: 'img/img1.jpeg',
+
+			// Parallax background size
+			parallaxBackgroundSize: '64000px 64000px',
+			// autoSlide: 10000,
+			// loop: true,
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+
+	<script>
+		function updateCountdown() {
+			const countdownElement = document.getElementById("countdown");
+			if (!countdownElement) return;
+
+			const targetDate = new Date("2025-06-14T00:00:00");
+			const now = new Date();
+			const diff = targetDate - now;
+
+			if (diff <= 0) {
+				countdownElement.textContent = "Hari ini adalah hari bahagia!";
+				return;
+			}
+
+			const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+			const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+			const minutes = Math.floor((diff / (1000 * 60)) % 60);
+			const seconds = Math.floor((diff / 1000) % 60);
+
+			document.getElementById("days").textContent = days;
+			document.getElementById("hours").textContent = hours;
+			document.getElementById("minutes").textContent = minutes;
+			document.getElementById("seconds").textContent = seconds;
+		}
+
+		setInterval(updateCountdown, 1000);
+		Reveal.on('ready', updateCountdown);
+	</script>
+</body>
+
+</html>
